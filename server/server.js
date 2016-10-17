@@ -20,20 +20,14 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
 app.use(methodOverride());
 
 
-//default get request
-app.get('/', function (req, res) {
-
-});
-
-
 //fetch artist data from spotify API
-app.post('/search', function (req, res) {
+app.post('/api/search', function (req, res) {
   // var query = req.body.toLowerCase().replace(/ /g, '%20').trim();
   var query = 'kanye%20west';
   var url = 'https://api.spotify.com/v1/search?q=' + query + '&type=artist';
 
   request(url, function (error, response, body) {
-    var searchData = JSON.parse(body);
+    if (err) { res.status(404).send(err); }
 
     if (!error && response.statusCode == 200) {
       var artistData = searchData.artists.items[0];
@@ -52,10 +46,6 @@ app.post('/search', function (req, res) {
 });
 
 // get/post requests for users here
-
-
-// get requests for artists from Spotify API here
-
 
 // get/post requests for user favorite artists here
 
