@@ -1,0 +1,22 @@
+{
+  "name": "2016-09-mvp",
+  "description": "Are they poppin'?",
+  "main": "index.html",
+  "authors": [
+    "Joe Lee"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/josephsanglee/2016-09-mvp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}
