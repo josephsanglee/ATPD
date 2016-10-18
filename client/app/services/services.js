@@ -10,7 +10,25 @@ angular.module('poppin.services', [])
     });
   };
 
+  var signin = function(user) {
+    return $http({
+      method: 'POST',
+      url: '/api/signin',
+      data: user
+    });
+  }
+  
+  var signup = function(user) {
+    return $http({
+      method: 'POST',
+      url: '/api/signup',
+      data: user
+    });
+  }
+
   return {
-    getArtistData: getArtistData
+    getArtistData: getArtistData,
+    signin: signin,
+    signup: signup
   };
 });

@@ -1,10 +1,10 @@
 .main-title {
   text-align: center;
-  font-family: 'Lobster', cursive;
 }
 
 .main-logo {
   font-size: 80px;
+  font-family: 'Lobster', cursive;
 }
 
 .side-title {
@@ -14,8 +14,8 @@
 
 .links {
   font-family: 'Roboto', sans-serif;
-  transition: all 0.3s ease 0s;
   cursor: pointer;
+  transition: all 0.3s ease 0s;
 }
 
 .side-images {
@@ -26,8 +26,7 @@
 .searchbar {
   text-align: center; 
   height: 40px; 
-  font-size: 30px;
-  font-family: 'Lobster', cursive
+  font-size: 25px;
 }
 
 .main-data {
@@ -53,4 +52,8 @@
 
 .tab:hover {
   background-color: lightgrey;
+}
+
+.loginSwitch {
+  cursor: pointer;
 }
