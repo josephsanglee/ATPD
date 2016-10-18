@@ -1,3 +1,20 @@
 <div id="container">
-  Hello World
+  <form name="artistForm"
+  style="text-align: center;"
+  ng-submit="submitArtist()">
+    <input type="text" 
+    ng-model="artist.name" 
+    placeholder="Search New Artist"></input>
+    <input type="submit" value="CHECK"></form>
+
+    <div ng-show="artistData" style="text-align: center;">
+      <h2>{{artistData.name}}</h2>
+      <img ng-show="artistData" 
+      style="text-align:center;"
+      src="{{artistData.image}}"
+      ></img>
+      <br>
+      has a popularity rating of {{artistData.popularity}}
+    <div>
+  </form>
 </div>
