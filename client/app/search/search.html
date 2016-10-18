@@ -1,20 +1,25 @@
-<div id="container">
+<div>
   <form name="artistForm"
   style="text-align: center;"
   ng-submit="submitArtist()">
+  <span>
     <input type="text" 
-    ng-model="artist.name" 
-    placeholder="Search New Artist"></input>
-    <input type="submit" value="CHECK"></form>
+      ng-model="artist.name" 
+      placeholder="Search New Artist"></input>
+      <input type="submit" value="Search"></form>
+  </span>
 
-    <div ng-show="artistData" style="text-align: center;">
-      <h2>{{artistData.name}}</h2>
-      <img ng-show="artistData" 
-      style="text-align:center;"
-      src="{{artistData.image}}"
-      ></img>
+    <div ng-show="artistData" style="text-align: center; font-size: 20px; padding-bottom: 20px;">
+      <h3>{{artistData.name}}</h3>
+      <img ng-show="artistData"
+        style="width: 450px; height: 425px; margin-bottom: 10px;"
+        class="img-rounded"
+        src="{{artistData.image}}"
+        ></img>
       <br>
-      has a popularity rating of {{artistData.popularity}}
+      <div>has a popularity rating of <strong>{{artistData.popularity}}</strong></div>
+      <div>and has <strong>{{artistData.followers}}</strong> followers.</div>
+      <strong><div>Status: {{tagline}}<div></strong>
     <div>
   </form>
 </div>
