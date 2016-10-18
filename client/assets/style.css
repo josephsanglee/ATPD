@@ -54,6 +54,11 @@
   background-color: lightgrey;
 }
 
+.loginForm {
+  background-color: lightgrey; 
+  padding: 20px; 
+  border-radius: 5px;
+}
 .loginSwitch {
   cursor: pointer;
 }

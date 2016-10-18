@@ -1,7 +1,7 @@
 angular.module('poppin.services', [])
 
-.factory('Artists', function($http) {
 
+.factory('Artists', function($http) {
   var getArtistData = function(artist) {
     return $http({
       method: 'POST',
@@ -10,6 +10,13 @@ angular.module('poppin.services', [])
     });
   };
 
+  return {
+    getArtistData: getArtistData,
+  };
+})
+
+
+.factory('Login', function($http) {
   var signin = function(user) {
     return $http({
       method: 'POST',
@@ -27,8 +34,7 @@ angular.module('poppin.services', [])
   }
 
   return {
-    getArtistData: getArtistData,
     signin: signin,
     signup: signup
-  };
+  }
 });

@@ -1,5 +1,5 @@
 angular.module('poppin.login', [])
 
-.controller('LoginController', function($scope) {
+.controller('LoginController', function($scope, ) {
 
 });
