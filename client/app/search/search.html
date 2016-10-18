@@ -1,11 +1,12 @@
-<div class="col-sm-3">
-  <div ng-show="artistData" style="font-size: 20px;">Related Artists</div>
+<!-- RELATED ARTISTS SIDEBAR -->
+<div class="col-sm-3 text-left">
+  <div ng-show="artistData" class="side-title">Related Artists</div>
   <nav class="nav-sidebar">
     <div class="nav tabs">
-      <div class="active" ng-show="artistData" ng-repeat="artist in relatedArtists">
-        <a data-toggle="tab" ng-click="submitArtist(artist.name)">
-          <span style="cursor: pointer;">
-            <img src="{{artist.image}}" style="width: 40px; height: 40px;">
+      <div class="tab" ng-show="artistData" ng-repeat="artist in relatedArtists">
+        <a ng-click="submitArtist(artist.name)">
+          <span class="links">
+            <img src="{{artist.image}}" class="side-images">
             {{artist.name}}
           </span>
         </a>
@@ -15,41 +16,38 @@
 </div>
 
 
-<div class="col-md-6" style="text-align: center;">
+<!-- MAIN PAGE THAT HOUSES SEARCH FUNCTIONALITY AND POPULARITY -->
+<div class="col-md-6 text-center">
   <form name="artistForm" ng-submit="submitArtist()">
     <input type="text" 
       ng-model="artist.name" 
       placeholder="Search New Artist"
-      style="text-align: center; height: 40px; font-size: 30px;">
+      class="searchbar">
     </input>
   </form>
-    <div ng-show="artistData" style="font-size: 20px; padding-bottom: 20px;">
-      <h1>{{artistData.name}}</h1>
+    <div ng-show="artistData" class="main-data">
+      <h1 class="main-name">{{artistData.name}}</h1>
+      <div>has a popularity rating of <strong>{{artistData.popularity}}/100</strong></div>
+      <div>and has <strong>{{artistData.followers}}</strong> followers.</div>
+      <br>
       <img ng-show="artistData"
-        style="max-width: 550px; height: 425px; margin-bottom: 10px;"
-        class="img-rounded"
+        class="img-rounded main-image"
         src="{{artistData.image}}"
         >
-      <br>
-      <div>has a popularity rating of <strong>{{artistData.popularity}}</strong></div>
-      <div>and has <strong>{{artistData.followers}}</strong> followers.</div>
-      <strong><h2>Status: {{tagline}}</h2></strong>
+      <strong><h1 class="main-tagline">Status: {{tagline}}</h1></strong>
     </div>
 </div>
 
-
+<!-- TOP TRACKS SIDEBAR -->
 <div class="col-sm-3 text-right">
-<!--   <audio autoplay>
-    <source src="{{trackPreview}}" type="audio/mpeg">
-  </audio> -->
- <div ng-show="artistData" style="font-size: 20px;">Top Tracks</div>
+ <div ng-show="artistData" class="side-title">Top Tracks</div>
   <nav class="nav-sidebar">
     <div class="nav tabs">
-      <div class="active" ng-show="artistData" ng-repeat="track in topTracks">
-        <a data-toggle="tab" ng-click="playTrack(track.preview)">
-          <span style="cursor: pointer;">
+      <div class="tab" ng-show="artistData" ng-repeat="track in topTracks">
+        <a ng-click="playTrack(track.preview)">
+          <span class="links">
             {{track.name}}
-            <img src="{{track.albumCover}}" style="width: 40px; height: 40px">
+            <img src="{{track.albumCover}}" class="side-images">
           </span>
         </a>
       </div>

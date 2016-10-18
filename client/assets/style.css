@@ -1,0 +1,56 @@
+.main-title {
+  text-align: center;
+  font-family: 'Lobster', cursive;
+}
+
+.main-logo {
+  font-size: 80px;
+}
+
+.side-title {
+  font-size: 35px;
+  font-family: 'Lobster', cursive;
+}
+
+.links {
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+
+.side-images {
+  width: 40px;
+  height: 40px;
+}
+
+.searchbar {
+  text-align: center; 
+  height: 40px; 
+  font-size: 30px;
+  font-family: 'Lobster', cursive
+}
+
+.main-data {
+  font-size: 20px;
+  padding-bottom: 15px;
+}
+
+.main-name {
+  font-family: 'Lobster',
+  cursive; font-size: 60px
+}
+
+.main-image {
+  max-width: 550px;
+  height: 425px;
+  margin-bottom: 10px;
+}
+
+.main-tagline {
+  font-family: 'Lobster', cursive;
+  font-size: 50px;
+}
+
+.tab:hover {
+  background-color: lightgrey;
+}
