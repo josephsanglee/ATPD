@@ -17,7 +17,7 @@ var getTopTracks = function(id, cb) {
       }
     });
 
-    cb(tracks);
+    return cb(tracks);
   });
 };
 
@@ -38,7 +38,7 @@ var getRelatedArtists = function(id, cb) {
       }
     });
 
-    cb(artists);
+    return cb(artists.slice(0, 10));
   });
 };
 
@@ -66,17 +66,13 @@ var getArtistData = function(url, cb) {
         getRelatedArtists(artist.id, function(relatedArtists) {
           artistData.relatedArtists = relatedArtists;
 
-          cb(artistData);
+          return cb(artistData);
         });
       });
     }
 
   });
 };
-
-
-
-
 
 
 module.exports = {

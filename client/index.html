@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <link href="libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   <title>Are They Poppin'?</title>
 </head>
 <body>
-  <div style="text-align: center;">
-    <h1> Are They Poppin' Doe?</h1>
-    <div>
-      Check your favorite artist's popularity rating from spotify!
-    </div>
+  <div style="text-align: center; font-family: 'Lobster', cursive;">
+    <h1 style="font-size: 80px"> Are They Poppin' Doe?</h1>
+    <h4>Check your favorite artist's popularity rating from spotify!</h4>
   </div>
 
 
-  <div style="padding-top: 10px;" ng-view></div>
+  <div style="padding-top: 10px;" class="container-fluid" ng-view></div>
 
 
     <script src="libs/angular/angular.js"></script>
     <script src="libs/angular-route/angular-route.js"></script>
+    <script src="libs/jquery/dist/jquery.min.js"></script>
 
     <script src="app/search/search.js"></script>
     <script src="app/services/services.js"></script>

@@ -2,8 +2,7 @@ angular.module('poppin.services', [])
 
 .factory('Artists', function($http) {
 
-  //performs a POST request to the server
-  var getArtist = function(artist) {
+  var getArtistData = function(artist) {
     return $http({
       method: 'POST',
       url: '/api/search',
@@ -12,6 +11,6 @@ angular.module('poppin.services', [])
   };
 
   return {
-    getArtist: getArtist
+    getArtistData: getArtistData
   };
 });
