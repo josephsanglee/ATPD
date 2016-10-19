@@ -1,7 +1,7 @@
 angular.module('poppin', [
   'poppin.services',
-  'poppin.search',
   'poppin.login',
+  'poppin.search',
   'ngRoute'
 ])
 

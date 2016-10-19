@@ -1,14 +1,14 @@
 <br><br>
 <div class="col-md-4"></div>
 <div class="col-md-4 loginForm">
-  <form>
+  <form ng-submit="submitSignup()">
     <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username">
+      <label>Username</label>
+      <input type="text" class="form-control" ng-model="username">
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password">
+      <input type="password" class="form-control" ng-model="password">
     </div>
     <div class="form-group text-center">
         <input class="btn btn-primary" type="submit" value="Sign up">

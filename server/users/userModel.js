@@ -8,12 +8,15 @@ var UserSchema = new mongoose.Schema({
 });
 
 
-UserSchema.methods.comparePasswords = function(enteredPassword, currentPassword) {
-  bcrypt.compare(enteredPassword, currentPassword, function(err, res) {
-    return new Promise(function(resolve, reject) {
-      if (err) { return reject(err); }
+UserSchema.methods.comparePasswords = function(enteredPassword) {
+  var currentPassword = this.password
+  return new Promise(function(resolve, reject) {
+    bcrypt.compare(enteredPassword, currentPassword, function(err, matched) {
+      if (err) { reject(err); };
 
-      return resolve(res);
+      if (matched) {
+        resolve(matched);
+      }
     });
   });
 };

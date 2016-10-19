@@ -1,5 +1,5 @@
 <!-- RELATED ARTISTS SIDEBAR -->
-<div class="col-sm-3 text-left">
+<div class="col-sm-3 text-left" onLoadFadeIn>
   <div ng-show="artistData" class="side-title">Related Artists</div>
   <nav class="nav-sidebar">
     <div class="nav tabs">
@@ -17,7 +17,7 @@
 
 
 <!-- MAIN PAGE THAT HOUSES SEARCH FUNCTIONALITY AND POPULARITY -->
-<div class="col-md-6 text-center">
+<div class="col-md-6 text-center" onLoadFadeIn>
   <form name="artistForm" ng-submit="submitArtist()">
     <input type="text" 
       ng-model="artist.name" 
@@ -38,7 +38,7 @@
 </div>
 
 <!-- TOP TRACKS SIDEBAR -->
-<div class="col-sm-3 text-right">
+<div class="col-sm-3 text-right" onLoadFadeIn>
  <div ng-show="artistData" class="side-title">Top Tracks</div>
   <nav class="nav-sidebar">
     <div class="nav tabs">

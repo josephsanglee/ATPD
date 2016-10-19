@@ -1,15 +1,20 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var Promise = require('bluebird');
 var middleware = require('./config/middleware.js');
 var helpers = require('./config/helpers.js');
 var port = process.env.PORT || 8080
 var app = express();
 
-
+// connect to mongodb
 mongoose.connect('mongodb://localhost/poppin');
 
+//put middleware in separate file
 middleware(app, express);
 
+var User = require('./users/userModel.js');
+var findUser = Promise.promisify(User.findOne, User);
+var createUser = Promise.promisify(User.create, User);
 
 //fetch artist data from spotify API
 app.post('/api/search', function (req, res) {
@@ -24,12 +29,42 @@ app.post('/api/search', function (req, res) {
 });
 
 // post request for user signin
+app.post('/api/signin', function(req, res) {
+  var user = req.body;
+
+  findUser({ username: user.username })
+  .then(function(currentUser) {
+    if (!user) { res.status(404).send('User aint there') };
+
+    currentUser.comparePasswords(user.password)
+    .then(function(matched) {
+      if (matched) {
+        res.status(200).send('Signin successful!');
+      }
+    });
+  });
+
+});
 
 // post request for user signup
+app.post('/api/signup', function(req, res) {
+  var user = req.body;
 
-// get/post requests for user favorite artists here
+  findUser({ username: user.username })
+  .then(function(err, found) {
+    if (err) { return res.send(err); }
 
+    if (!found) {
+      createUser(user)
+      .then(function(err) {
+        console.log(err);
+        if (err) { return res.status(404).send(err); } 
 
+        res.status(200).send('Successfully posted!');
+      });
+    }
+  });
+});
 
 
 app.listen(port);
