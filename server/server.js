@@ -22,7 +22,6 @@ app.post('/api/search', function (req, res) {
   var url = 'https://api.spotify.com/v1/search?q=' + query + '&type=artist';
 
   helpers.getArtist(url, function(artist) {
-    console.log(artist);
     res.status(200).send(JSON.stringify(artist));
   });
 
@@ -51,18 +50,15 @@ app.post('/api/signup', function(req, res) {
   var user = req.body;
 
   findUser({ username: user.username })
-  .then(function(err, found) {
-    if (err) { return res.send(err); }
+  .then(function(currentUser) {
+    if (!user) { res.status(404).send('Invalid signup'); }
 
-    if (!found) {
-      createUser(user)
-      .then(function(err) {
-        console.log(err);
-        if (err) { return res.status(404).send(err); } 
+    createUser(user)
+    .then(function(user) {
+      if (!user) { return res.status(404).send('Invalid creation'); } 
 
-        res.status(200).send('Successfully posted!');
-      });
-    }
+      res.status(200).send('Successfully created!');
+    });
   });
 });
 

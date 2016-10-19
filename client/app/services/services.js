@@ -1,6 +1,5 @@
 angular.module('poppin.services', [])
 
-
 .factory('Artists', function($http) {
   var getArtistData = function(artist) {
     return $http({
@@ -14,6 +13,7 @@ angular.module('poppin.services', [])
     getArtistData: getArtistData,
   };
 })
+
 
 
 .factory('Login', function($http) {
@@ -36,5 +36,5 @@ angular.module('poppin.services', [])
   return {
     signin: signin,
     signup: signup
-  }
+  };
 });
