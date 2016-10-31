@@ -21,6 +21,6 @@ angular.module('poppin', [
     controller: 'LoginController'
   })
   .otherwise({
-    redirectTo: '/search'
+    redirectTo: '/signin'
   });
 });

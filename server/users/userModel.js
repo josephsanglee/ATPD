@@ -3,16 +3,16 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 
 var UserSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
   password: {type: String, required: true }
 });
 
 
 UserSchema.methods.comparePasswords = function(enteredPassword) {
-  var currentPassword = this.password
+  var currentPassword = this.password;
   return new Promise(function(resolve, reject) {
     bcrypt.compare(enteredPassword, currentPassword, function(err, matched) {
-      if (err) { reject(err); };
+      if (err) { reject(err); }
 
       if (matched) {
         resolve(matched);
@@ -27,7 +27,7 @@ UserSchema.pre('save', function(next) {
   //method on mongoose schemas
   //allows the server to do check the database
   //for a user without having to check password as well
-  if(!user.isModified('password')) {
+  if (!user.isModified('password')) {
     next();
   }
 

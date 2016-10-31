@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Promise = require('bluebird');
 var middleware = require('./config/middleware.js');
 var helpers = require('./config/helpers.js');
-var port = process.env.PORT || 8080
+var port = process.env.PORT || 8080;
 var app = express();
 
 // connect to mongodb
@@ -33,7 +33,7 @@ app.post('/api/signin', function(req, res) {
 
   findUser({ username: user.username })
   .then(function(currentUser) {
-    if (!user) { res.status(404).send('User aint there') };
+    if (!user) { res.status(404).send('User aint there'); }
 
     currentUser.comparePasswords(user.password)
     .then(function(matched) {

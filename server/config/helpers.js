@@ -14,7 +14,7 @@ var getTopTracks = function(id, cb) {
         name: track.name,
         albumCover: track.album.images[0].url,
         preview: track.preview_url
-      }
+      };
     });
 
     return cb(tracks);
@@ -35,7 +35,7 @@ var getRelatedArtists = function(id, cb) {
         id: artist.id,
         name: artist.name,
         image: artist.images[0].url
-      }
+      };
     });
 
     return cb(artists.slice(0, 10));
